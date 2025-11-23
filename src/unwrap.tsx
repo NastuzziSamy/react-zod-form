@@ -11,7 +11,7 @@ import {
   HIDDEN_ID_PROPERTY,
   isSchemaWithHiddenProperties,
 } from "./createFieldSchema";
-import { RTFSupportedZodTypes } from "./supportedZodTypes";
+import type { RTFSupportedZodTypes } from "./supportedZodTypes";
 
 const unwrappable = new Set<z.ZodFirstPartyTypeKind>([
   z.ZodFirstPartyTypeKind.ZodOptional,

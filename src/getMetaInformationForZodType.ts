@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { RTFSupportedZodTypes } from "./supportedZodTypes";
+import type { RTFSupportedZodTypes } from "./supportedZodTypes";
 import { unwrap } from "./unwrap";
 
 export const SPLIT_DESCRIPTION_SYMBOL = " // ";

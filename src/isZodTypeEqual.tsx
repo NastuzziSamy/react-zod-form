@@ -9,7 +9,7 @@ import {
   ZodString,
   z,
 } from "zod";
-import { RTFSupportedZodTypes } from "./supportedZodTypes";
+import type { RTFSupportedZodTypes } from "./supportedZodTypes";
 import { unwrap } from "./unwrap";
 
 export function isZodTypeEqual(

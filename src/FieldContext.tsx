@@ -7,7 +7,7 @@ import {
   UseControllerReturn,
 } from "react-hook-form";
 import { errorFromRhfErrorObject } from "./zodObjectErrors";
-import { RTFSupportedZodTypes } from "./supportedZodTypes";
+import type { RTFSupportedZodTypes } from "./supportedZodTypes";
 import { UnwrapZodType, unwrap } from "./unwrap";
 import {
   RTFSupportedZodFirstPartyTypeKind,

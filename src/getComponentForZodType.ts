@@ -1,4 +1,4 @@
-import { RTFSupportedZodTypes } from "./supportedZodTypes";
+import type { RTFSupportedZodTypes } from "./supportedZodTypes";
 import { FormComponentMapping } from "./createSchemaForm";
 import { isZodTypeEqual } from "./isZodTypeEqual";
 
