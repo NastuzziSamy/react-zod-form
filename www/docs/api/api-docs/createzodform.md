@@ -2,19 +2,19 @@
 sidebar_position: 1
 ---
 
-# createTsForm
+# createZodForm
 
-## createTsForm
+## createZodForm
 
 Create schema form creates a typesafe reusable form component based on your zod-to-component mapping.
 
 ```ts
-const Form = createTsForm(mapping, options);
+const Form = createZodForm(mapping, options);
 ```
 
 Typically you'll do this once per project, as the mapping can map any number of schemas to any number of components.
 
-## createTsForm Parameters
+## createZodForm Parameters
 
 ### **mapping**
 
@@ -43,7 +43,7 @@ You can use any zod schema. Objects get matched based on their properties.
 **options** - (**optional**) Allows further customization of the form:
 
 ```tsx
-const Form = createTsForm(mapping, {
+const Form = createZodForm(mapping, {
   FormComponent: CustomFormComponent,
   propsMap: [["name", "someOtherPropName"]] as const,
 });
@@ -69,7 +69,7 @@ const Form = createTsForm(mapping, {
     );
   }
 
-  const MyForm = createTsForm(mapping, {
+  const MyForm = createZodForm(mapping, {
     FormComponent: FormContainer,
   });
   ```
@@ -94,7 +94,7 @@ const propsMap = [
 ];
 const componentMap = [[z.string(), MyComponent]] as const;
 
-const Form = createTsForm(componentMap, {
+const Form = createZodForm(componentMap, {
   propsMap,
 });
 ```
@@ -117,4 +117,4 @@ Mappable props are:
 - `label` - The label extracted from `.describe()`
 - `placeholder` - The placeholder extracted from `.describe()`
 
-This can be useful in cases where you would like to integrate with existing components, or just don't want `@ts-react/form` to forward any props for you.
+This can be useful in cases where you would like to integrate with existing components, or just don't want `react-zod-form` to forward any props for you.

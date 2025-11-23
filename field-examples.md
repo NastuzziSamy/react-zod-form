@@ -1,6 +1,6 @@
 # Example Fields
 
-These can be a good starting points for your fields with `@ts-react/form`
+These can be a good starting points for your fields with `react-zod-form`
 
 1. [Select](#select)
 2. [Text Field](#text-field)
@@ -12,7 +12,7 @@ These can be a good starting points for your fields with `@ts-react/form`
 
 ```tsx
 function Select({ options }: { options: string[] }) {
-  const { field, error } = useTsController<string>();
+  const { field, error } = useZodController<string>();
   return (
     <>
       <select
@@ -69,7 +69,7 @@ function TextField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
 
   return (
     <>
@@ -90,7 +90,7 @@ function NumberField({ req }: { req: number }) {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<number>();
+  } = useZodController<number>();
   return (
     <>
       <span>
@@ -116,7 +116,7 @@ function NumberField({ req }: { req: number }) {
 function Checkbox({ name }: { name: string }) {
   const {
     field: { onChange, value },
-  } = useTsController<boolean>();
+  } = useZodController<boolean>();
 
   return (
     <label>
@@ -137,7 +137,7 @@ function Checkbox({ name }: { name: string }) {
 function MultiCheckbox({ options }: { options: string[] }) {
   const {
     field: { onChange, value },
-  } = useTsController<string[]>();
+  } = useZodController<string[]>();
 
   function toggleField(option: string) {
     if (!value) onChange([option]);

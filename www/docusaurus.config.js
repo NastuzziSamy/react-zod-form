@@ -124,7 +124,7 @@ const config = {
           },
           {
             type: "doc",
-            docId: "api/api-docs/createtsform",
+            docId: "api/api-docs/createzodform",
             position: "left",
             label: "API",
           },
@@ -151,7 +151,7 @@ const config = {
               },
               {
                 label: "API",
-                to: "docs/api/api-docs/createtsform",
+                to: "docs/api/api-docs/createzodform",
               },
             ],
           },

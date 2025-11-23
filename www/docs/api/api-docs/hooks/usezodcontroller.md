@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# useTsController
+# useZodController
 
-## `useTsController`
+## `useZodController`
 
 A typesafe hook that automatically connects to your form state:
 
@@ -13,7 +13,7 @@ function TextField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
   // ...
 }
 ```

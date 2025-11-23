@@ -13,7 +13,7 @@ Install package and dependencies with your preferred package manager:
 ### Install package
 
 ```bash
-npm install @ts-react/form
+npm install react-zod-form
 ```
 
 ### Required peer dependencies
@@ -27,7 +27,7 @@ npm install zod react-hook-form @hookform/resolvers
 ### Install package
 
 ```bash
-yarn add @ts-react/form
+yarn add react-zod-form
 ```
 
 ### Required peer dependencies
@@ -41,7 +41,7 @@ yarn add zod react-hook-form @hookform/resolvers
 ### Install package
 
 ```bash
-pnpm add @ts-react/form
+pnpm add react-zod-form
 ```
 
 ### Required peer dependencies

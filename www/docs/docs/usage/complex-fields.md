@@ -10,7 +10,7 @@ You can use almost any zod schema and have it map to an appropriate component:
 
 ```tsx
 function AddressEntryField() {
-  const {field: {onChange, value}, error} = useTsController<z.infer<typeof AddressSchema>>();
+  const {field: {onChange, value}, error} = useZodController<z.infer<typeof AddressSchema>>();
   const street = value?.street;
   const zipCode = value?.zipCode;
   return (

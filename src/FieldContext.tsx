@@ -77,7 +77,7 @@ function useContextProt(name: string) {
   const context = useContext(FieldContext);
   if (!context)
     throw Error(
-      `${name} must be called from within a FieldContextProvider... if you use this hook, the component must be rendered by @ts-react/form.`
+      `${name} must be called from within a FieldContextProvider... if you use this hook, the component must be rendered by react-zod-form.`
     );
   return context;
 }
@@ -87,7 +87,7 @@ function useContextProt(name: string) {
  * `useController` call returns but with additional typesafety. Additionally, returns an `errors` object that provides a typesafe way
  * of dealing with nested react hook form errors.
  * @example
- * const {field: {onChange, value}, errors} = useTsController<string>()
+ * const {field: {onChange, value}, errors} = useZodController<string>()
  *
  * return (
  *  <>
@@ -99,8 +99,8 @@ function useContextProt(name: string) {
  *  </>
  * )
  */
-export function useTsController<FieldType extends any>() {
-  const context = useContextProt("useTsController");
+export function useZodController<FieldType extends any>() {
+  const context = useContextProt("useZodController");
   type IsObj = FieldType extends Object ? true : false;
   type OnChangeValue = IsObj extends true
     ? DeepPartial<FieldType> | undefined

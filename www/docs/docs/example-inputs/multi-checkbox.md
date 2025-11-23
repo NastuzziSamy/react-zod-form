@@ -4,7 +4,7 @@
 function MultiCheckbox({ options }: { options: string[] }) {
   const {
     field: { onChange, value },
-  } = useTsController<string[]>();
+  } = useZodController<string[]>();
 
   function toggleField(option: string) {
     if (!value) onChange([option]);

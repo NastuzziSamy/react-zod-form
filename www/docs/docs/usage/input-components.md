@@ -6,11 +6,11 @@ sidebar_position: 2
 
 ## Creating a custom input component
 
-Form components can be any react component. The <code>useTsController()</code> hook allows you to build your components with the form state:
+Form components can be any react component. The <code>useZodController()</code> hook allows you to build your components with the form state:
 
 ```tsx
 function TextField() {
-  const { field, error } = useTsController<string>();
+  const { field, error } = useZodController<string>();
   return (
     <>
       <input
@@ -25,4 +25,4 @@ function TextField() {
 }
 ```
 
-<code>@ts-react/form</code> will magically connect your component to the appropriate field with this hook.
+<code>react-zod-form</code> will magically connect your component to the appropriate field with this hook.

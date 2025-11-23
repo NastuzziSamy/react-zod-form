@@ -25,7 +25,7 @@ This can allow you to use similar zod schemas for rendering different types of c
 
 ## Handling Optionals
 
-`@ts-react/form` will match optionals to their non optional zod schemas:
+`react-zod-form` will match optionals to their non optional zod schemas:
 
 ```tsx
 const mapping = [[z.string(), TextField]] as const;

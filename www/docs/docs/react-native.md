@@ -30,5 +30,5 @@ const mapping = [
   //...
 ] as const;
 
-const MyForm = createTsForm(mapping, { FormComponent: FormContainer });
+const MyForm = createZodForm(mapping, { FormComponent: FormContainer });
 ```

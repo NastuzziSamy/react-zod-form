@@ -14,7 +14,7 @@ By default your form is just rendered with a `<form>` tag. You can pass props to
 
 ## Custom Form Component
 
-The recommended approach is to provide a custom form component as the second parameter to `createTsForm` options, it will get passed an `onSubmit` function, and it should also render its children (these are your input components):
+The recommended approach is to provide a custom form component as the second parameter to `createZodForm` options, it will get passed an `onSubmit` function, and it should also render its children (these are your input components):
 
 ```tsx
 const mapping = [
@@ -40,7 +40,7 @@ function MyCustomFormComponent({
   )
 }
 // MyCustomFormComponent is now being used as the container instead of the default <form> tag.
-const MyForm = createTsForm(mapping, {FormComponent: MyCustomFormComponent});
+const MyForm = createZodForm(mapping, {FormComponent: MyCustomFormComponent});
 
 <MyForm
   formProps={{

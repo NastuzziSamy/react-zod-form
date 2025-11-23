@@ -7,7 +7,7 @@ import {
   HIDDEN_ID_PROPERTY,
   isSchemaWithHiddenProperties,
 } from "../createFieldSchema";
-import { createTsForm } from "../createSchemaForm";
+import { createZodForm } from "../createSchemaForm";
 import { TextField } from "./utils/testForm";
 
 describe("createFieldSchema", () => {
@@ -19,7 +19,7 @@ describe("createFieldSchema", () => {
     ] as const;
 
     expect(() => {
-      createTsForm(mapping);
+      createZodForm(mapping);
     }).toThrowError(duplicateIdErrorMessage("id"));
   });
   it("should not throw an error if two different ids are used", () => {
@@ -28,7 +28,7 @@ describe("createFieldSchema", () => {
       [createUniqueFieldSchema(z.string(), "id2"), TextField],
     ] as const;
     expect(() => {
-      createTsForm(mapping);
+      createZodForm(mapping);
     }).not.toThrowError();
   });
   it("should correctly type the form with multiple unique field schemas.", () => {
@@ -45,7 +45,7 @@ describe("createFieldSchema", () => {
       [B, In2],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       schema={z.object({

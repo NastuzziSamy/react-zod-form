@@ -2,7 +2,7 @@
 
 ```tsx
 function Select({ options }: { options: string[] }) {
-  const { field, error } = useTsController<string>();
+  const { field, error } = useZodController<string>();
   return (
     <>
       <select

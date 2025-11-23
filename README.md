@@ -9,12 +9,12 @@
 </p>
 
 <p align="center">
-<b>@ts-react/form</b> handles the boilerplate involved when building forms using <b>zod</b> and <b>react-hook-form</b> without&nbsp;sacrificing&nbsp;customizability. 
+<b>react-zod-form</b> handles the boilerplate involved when building forms using <b>zod</b> and <b>react-hook-form</b> without&nbsp;sacrificing&nbsp;customizability. 
 </p>
 
 <div align="center">
 
-<a href=""> [![codecov](https://codecov.io/github/iway1/react-ts-form/branch/main/graph/badge.svg?token=U4UFRGI3HF)](https://codecov.io/github/iway1/react-ts-form) [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/isaac_ts_way.svg?style=social&label=Follow%20%40isaac_ts_way)](https://twitter.com/isaac_ts_way)</a>
+<a href=""> [![codecov](https://codecov.io/github/NastuzziSamy/react-zod-form/branch/main/graph/badge.svg?token=U4UFRGI3HF)](https://codecov.io/github/NastuzziSamy/react-zod-form) [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/NastuzziSamy.svg?style=social&label=Follow%20%40NastuzziSamy)](https://twitter.com/NastuzziSamy)</a>
 
 </div>
 
@@ -41,15 +41,15 @@ Make sure you have `"strict": true` in your tsconfig.json compilerOptions and ma
 Install package and dependencies with your preferred package manager:
 
 ```sh
-yarn add @ts-react/form
+bun add react-zod-form
 
 # required peer dependencies
-yarn add zod react-hook-form @hookform/resolvers
+bun add zod react-hook-form @hookform/resolvers
 ```
 
 ## Usage
 
-Create a zod-to-component mapping to map zod schemas to your components then create your form with `createTsForm` (typically once per project):
+Create a zod-to-component mapping to map zod schemas to your components then create your form with `createZodForm` (typically once per project):
 
 ```tsx
 // create the mapping
@@ -60,7 +60,7 @@ const mapping = [
 ] as const; // 👈 `as const` is necessary
 
 // A typesafe React component
-const MyForm = createTsForm(mapping);
+const MyForm = createZodForm(mapping);
 ```
 
 Now just create form schemas with zod and pass them to your form:
@@ -120,4 +120,4 @@ Note that you can still compile with older versions of typescript and the type c
 ## Limitations
 
 - Doesn't support class components
-- `@ts-react/form` does not yet support "dependent field props", meaning you can't change one field component based on the value of another, but it's a feature we plan on adding soon.
+- `react-zod-form` does not yet support "dependent field props", meaning you can't change one field component based on the value of another, but it's a feature we plan on adding soon.

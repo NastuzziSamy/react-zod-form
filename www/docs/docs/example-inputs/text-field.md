@@ -5,7 +5,7 @@ function TextField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import React from "react";
-import { createTsForm } from "../createSchemaForm";
+import { createZodForm } from "../createSchemaForm";
 
 describe("unwrap types", () => {
   it("should have the correct types for nullable, optional, and nullish", () => {
@@ -9,7 +9,7 @@ describe("unwrap types", () => {
     }
     const mapping = [[z.string(), TextField]] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       onSubmit={(data) => {
@@ -39,7 +39,7 @@ describe("unwrap types", () => {
     }
     const mapping = [[z.string(), TextField]] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       onSubmit={(data) => {
@@ -66,7 +66,7 @@ describe("unwrap types", () => {
     }
     const mapping = [[z.string(), TextField]] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       onSubmit={(data) => {
@@ -96,7 +96,7 @@ describe("unwrap types", () => {
       [z.enum(["placeholder"]), TextField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       onSubmit={(data) => {

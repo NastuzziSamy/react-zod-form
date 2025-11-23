@@ -1,21 +1,21 @@
 # API
 
-- [createTsForm](#createtsform)
+- [createZodForm](#createzodform)
 - [createUniqueFieldSchema](#createuniquefieldschema)
 - [FormComponent](#formcomponent)
 - [Hooks](#hooks)
 
-## createTsForm
+## createZodForm
 
 Create schema form creates a typesafe reusable form component based on your zod-to-component mapping.
 
 ```ts
-const Form = createTsForm(mapping, options);
+const Form = createZodForm(mapping, options);
 ```
 
 Typically you'll do this once per project, as the mapping can map any number of schemas to any number of components.
 
-### createTsForm params
+### createZodForm params
 
 **mapping** - A zod-to-component mapping. An array of two-tuples where the first element is a zod schema and the second element is a React functional component:
 
@@ -40,7 +40,7 @@ You can use any zod schema. Objects get matched based on their properties.
 **options** - (**optional**) Allows further customization of the form:
 
 ```tsx
-const Form = createTsForm(mapping, {
+const Form = createZodForm(mapping, {
   FormComponent: CustomFormComponent,
   propsMap: [["name", "someOtherPropName"]] as const,
 });
@@ -64,7 +64,7 @@ const Form = createTsForm(mapping, {
     );
   }
 
-  const MyForm = createTsForm(mapping, {
+  const MyForm = createZodForm(mapping, {
     FormComponent: FormContainer,
   });
   ```
@@ -87,7 +87,7 @@ const Form = createTsForm(mapping, {
   ];
   const componentMap = [[z.string(), MyComponent]] as const;
 
-  const Form = createTsForm(componentMap, {
+  const Form = createZodForm(componentMap, {
     propsMap,
   });
   ```
@@ -110,7 +110,7 @@ const Form = createTsForm(mapping, {
   - `label` - The label extracted from `.describe()`
   - `placeholder` - The placeholder extracted from `.describe()`
 
-This can be useful in cases where you would like to integrate with existing components, or just don't want `@ts-react/form` to forward any props for you.
+This can be useful in cases where you would like to integrate with existing components, or just don't want `react-zod-form` to forward any props for you.
 
 ## createUniqueFieldSchema
 
@@ -149,7 +149,7 @@ This is the component returned via `createSchemaForm`
 
 ## Hooks
 
-### `useTsController`
+### `useZodController`
 
 A typesafe hook that automatically connects to your form state:
 
@@ -158,7 +158,7 @@ function TextField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
   // ...
 }
 ```

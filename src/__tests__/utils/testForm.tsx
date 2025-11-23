@@ -2,7 +2,7 @@ import React from "react";
 import { Control, useController } from "react-hook-form";
 import { z } from "zod";
 import { createUniqueFieldSchema } from "../../createFieldSchema";
-import { createTsForm } from "../../createSchemaForm";
+import { createZodForm } from "../../createSchemaForm";
 
 export const textFieldTestId = "text-field";
 
@@ -102,7 +102,7 @@ const propsMap = [
   ["descriptionPlaceholder", "placeholder"] as const,
 ] as const;
 
-export const TestForm = createTsForm(mapping, {
+export const TestForm = createZodForm(mapping, {
   propsMap: propsMap,
 });
 
@@ -117,7 +117,7 @@ const FormWithSubmit = ({
     {children} <button type="submit">submit</button>
   </form>
 );
-export const TestFormWithSubmit = createTsForm(mapping, {
+export const TestFormWithSubmit = createZodForm(mapping, {
   propsMap: propsMap,
   FormComponent: FormWithSubmit,
 });

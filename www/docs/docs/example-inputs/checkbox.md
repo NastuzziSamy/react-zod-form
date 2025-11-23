@@ -4,7 +4,7 @@
 function Checkbox({ name }: { name: string }) {
   const {
     field: { onChange, value },
-  } = useTsController<boolean>();
+  } = useZodController<boolean>();
 
   return (
     <label>

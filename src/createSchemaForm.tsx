@@ -251,7 +251,7 @@ export type RTFFormProps<
   FormType extends FormComponent = "form"
 > = {
   /**
-   * A Zod Schema - An input field will be rendered for each property in the schema, based on the mapping passed to `createTsForm`
+   * A Zod Schema - An input field will be rendered for each property in the schema, based on the mapping passed to `createZodForm`
    */
   schema: SchemaType;
   /**
@@ -302,7 +302,7 @@ export type RTFFormProps<
 } & RequireKeysWithRequiredChildren<{
   /**
    * Props to pass to the individual form components. The keys of `props` will be the names of your form properties in the form schema, and they will
-   * be typesafe to the form components in the mapping passed to `createTsForm`. If any of the rendered form components have required props, this is required.
+   * be typesafe to the form components in the mapping passed to `createZodForm`. If any of the rendered form components have required props, this is required.
    * @example
    * ```tsx
    * <MyForm
@@ -334,12 +334,12 @@ export type RTFFormProps<
  * const mapping = [
  *  [z.string, TextField] as const
  * ] as const
- * const MyForm = createTsForm(mapping)
+ * const MyForm = createZodForm(mapping)
  * ```
  * @param componentMap A zod-component mapping. An array of 2-tuples where the first element is a zod schema and the second element is a React Functional Component.
  * @param options Optional - A custom form component to use as the container for the input fields.
  */
-export function createTsForm<
+export function createZodForm<
   Mapping extends FormComponentMapping,
   PropsMapType extends PropsMapping = typeof defaultPropsMap,
   FormType extends FormComponent = "form"
@@ -353,7 +353,7 @@ export function createTsForm<
    *  [z.boolean(), CheckBoxField] as const
    * ] as const
    *
-   * const MyForm = createTsForm(mapping);
+   * const MyForm = createZodForm(mapping);
    * ```
    */
   componentMap: Mapping,
@@ -373,7 +373,7 @@ export function createTsForm<
      *    </form>
      *  )
      * }
-     * const MyForm = createTsForm(mapping, {
+     * const MyForm = createZodForm(mapping, {
      *  FormComponent: MyCustomFormContainer
      * })
      * ```
@@ -381,7 +381,7 @@ export function createTsForm<
     FormComponent?: FormType;
     /**
      * Modify which props the form control and such get passed to when rendering components. This can make it easier to integrate existing
-     * components with `@ts-react/form` or modify its behavior. The values of the object are the names of the props to forward the corresponding
+     * components with `react-zod-form` or modify its behavior. The values of the object are the names of the props to forward the corresponding
      * data to.
      * @default {
      *  name: "name",
@@ -394,7 +394,7 @@ export function createTsForm<
      *  //...
      * }
      *
-     * const createTsForm(mapping, {
+     * const createZodForm(mapping, {
      *  propsMap: {
      *    control: "someControlProp"
      *  }

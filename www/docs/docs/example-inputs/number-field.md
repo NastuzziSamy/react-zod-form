@@ -5,7 +5,7 @@ function NumberField({ req }: { req: number }) {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<number>();
+  } = useZodController<number>();
   return (
     <>
       <span>

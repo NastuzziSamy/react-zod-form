@@ -28,8 +28,8 @@ function FormContainer({
   );
 }
 
-// Make sure to pass it to `createTsForm`
-const Form = createTsForm(mapping, { FormComponent: FormContainer });
+// Make sure to pass it to `createZodForm`
+const Form = createZodForm(mapping, { FormComponent: FormContainer });
 ```
 
 The above form component has a "loading" prop to show a loading spinner while the form is submitting to make it easy for us to code a great UX. Also notice the form component has a `space-y-4`, ensuring consistent spacing between form components.
@@ -91,7 +91,7 @@ function TextField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
   const { label } = useDescription();
 
   return (
@@ -108,7 +108,7 @@ function PhoneField() {
   const {
     field: { onChange, value },
     error,
-  } = useTsController<string>();
+  } = useZodController<string>();
   const { label } = useDescription();
 
   return (

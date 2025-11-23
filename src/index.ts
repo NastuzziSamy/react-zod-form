@@ -1,10 +1,10 @@
 export { createUniqueFieldSchema } from "./createFieldSchema";
-export { createTsForm } from "./createSchemaForm";
+export { createZodForm } from "./createSchemaForm";
 export {
   useDescription,
   useReqDescription,
   useEnumValues,
-  useTsController,
+  useZodController,
   useFieldInfo,
   useStringFieldInfo,
   useNumberFieldInfo,

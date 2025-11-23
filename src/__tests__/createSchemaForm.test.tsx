@@ -11,7 +11,7 @@ import {
   textFieldTestId,
 } from "./utils/testForm";
 import {
-  createTsForm,
+  createZodForm,
   noMatchingSchemaErrorMessage,
   useFormResultValueChangedErrorMesssage,
 } from "../createSchemaForm";
@@ -31,7 +31,7 @@ import {
   useDescription,
   useEnumValues,
   useReqDescription,
-  useTsController,
+  useZodController,
   useStringFieldInfo,
   useFieldInfo,
   useDateFieldInfo,
@@ -95,7 +95,7 @@ describe("createSchemaForm", () => {
     }
 
     const mapping = [[z.string(), TextField] as const] as const;
-    const TSForm = createTsForm(mapping);
+    const TSForm = createZodForm(mapping);
 
     render(
       <TSForm
@@ -256,7 +256,7 @@ describe("createSchemaForm", () => {
     const Schema = z.object({
       enum: enumSchema,
     });
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     jest.spyOn(console, "error").mockImplementation(() => {});
     expect(() =>
@@ -432,7 +432,7 @@ describe("createSchemaForm", () => {
       [z.string(), TextField] as const,
       [z.boolean(), BooleanField] as const,
     ] as const;
-    const TSForm = createTsForm(mapping, { FormComponent });
+    const TSForm = createZodForm(mapping, { FormComponent });
 
     render(
       <TSForm
@@ -583,7 +583,7 @@ describe("createSchemaForm", () => {
       useFormResultValueChangedErrorMesssage()
     );
   });
-  it("should be possible to set and read form state with useTsController", async () => {
+  it("should be possible to set and read form state with useZodController", async () => {
     const errorMessage = "bad";
     const buttonTestId = "test";
     const inputTestId = "input";
@@ -597,7 +597,7 @@ describe("createSchemaForm", () => {
       const {
         field,
         fieldState: { error },
-      } = useTsController<string>();
+      } = useZodController<string>();
       const [_, setState] = useState(0);
       return (
         <>
@@ -618,7 +618,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.string(), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const submitMock = jest.fn();
     const expectedOutput: z.infer<typeof FormSchema> = {
       field: testInput,
@@ -724,11 +724,11 @@ describe("createSchemaForm", () => {
     waitFor(() => expect(submitting).toBe(false));
   });
 
-  it("should throw an error if useTsController is called outside of a @ts-react/form rendered component", () => {
+  it("should throw an error if useZodController is called outside of a react-zod-form rendered component", () => {
     // hello 100% test coverage =D
     jest.spyOn(console, "error").mockImplementation(() => {});
     function C() {
-      useTsController();
+      useZodController();
       return <div />;
     }
     expect(() => render(<C />)).toThrow();
@@ -765,7 +765,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.enum([""]), Component] as const] as const;
-    const Form = createTsForm(mapping, {
+    const Form = createZodForm(mapping, {
       propsMap: propsMapping,
     });
     const MySchema = z.object({
@@ -791,7 +791,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.string(), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(
       <Form
@@ -820,7 +820,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.string(), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(
       <Form
@@ -849,7 +849,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.string(), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     expect(() =>
       render(
@@ -874,7 +874,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.string(), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     expect(() =>
       render(
@@ -901,7 +901,7 @@ describe("createSchemaForm", () => {
       [z.string().describe(`a ${SPLIT_DESCRIPTION_SYMBOL} b`), Comp] as const,
     ] as const;
 
-    const Form = createTsForm(componentMap);
+    const Form = createZodForm(componentMap);
 
     const FormSchema = z.object({
       field: z.string().describe(`a ${SPLIT_DESCRIPTION_SYMBOL} b`),
@@ -926,7 +926,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.enum(["yep"]), Component] as const] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(
       <Form
@@ -950,7 +950,7 @@ describe("createSchemaForm", () => {
         },
       ] as const,
     ] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     expect(() => {
       render(<Form schema={Schema} onSubmit={() => {}} />);
@@ -971,7 +971,7 @@ describe("createSchemaForm", () => {
       [B, In2],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     <Form
       schema={z
@@ -1000,7 +1000,7 @@ describe("createSchemaForm", () => {
       const {
         field: { onChange, value },
         error,
-      } = useTsController<number>();
+      } = useZodController<number>();
       const [_, setRerender] = useState(0);
       return (
         <>
@@ -1021,7 +1021,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.number(), Input]] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const defaultValues = {
       number: 5,
     };
@@ -1054,7 +1054,7 @@ describe("createSchemaForm", () => {
       const {
         field: { onChange, value },
         error,
-      } = useTsController<number>();
+      } = useZodController<number>();
       const [_, setRerender] = useState(0);
       return (
         <>
@@ -1075,7 +1075,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.number(), Input]] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const defaultValues = {
       number: 5,
     };
@@ -1109,7 +1109,7 @@ describe("createSchemaForm", () => {
       const {
         field: { onChange, value },
         error,
-      } = useTsController<number>();
+      } = useZodController<number>();
       const [_, setRerender] = useState(0);
       return (
         <>
@@ -1130,7 +1130,7 @@ describe("createSchemaForm", () => {
       );
     }
     const mapping = [[z.number(), Input]] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const defaultValues = {
       number: 5,
     };
@@ -1158,7 +1158,7 @@ describe("createSchemaForm", () => {
       const {
         field: { onChange, value },
         error,
-      } = useTsController<number>();
+      } = useZodController<number>();
       const [_, setRerender] = useState(0);
       return (
         <>
@@ -1196,7 +1196,7 @@ describe("createSchemaForm", () => {
     }
 
     const mapping = [[z.number(), Input]] as const;
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const defaultValues = {
       number: 5,
     };
@@ -1227,7 +1227,7 @@ describe("createSchemaForm", () => {
       [NumberSchema, NumberField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     const schema = z.object({
       name: StringSchema.optional(), // if .optional is added to a schema it stops working
@@ -1257,7 +1257,7 @@ describe("createSchemaForm", () => {
       [uniqueField, FieldTwo],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
     const Schema = z.object({
       one: z.enum(["one", "two"]),
       two: uniqueField,
@@ -1352,7 +1352,7 @@ describe("createSchemaForm", () => {
       [OptionalTextFieldSchema, OptionalTextField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(<Form schema={schema} onSubmit={() => {}} />);
   });
@@ -1436,7 +1436,7 @@ describe("createSchemaForm", () => {
       [arrayTextField.schema, arrayTextField.component],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(<Form schema={schema} onSubmit={() => {}} />);
 
@@ -1520,7 +1520,7 @@ describe("createSchemaForm", () => {
       [arrayDateField.schema, arrayDateField.component],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     render(<Form schema={schema} onSubmit={() => {}} />);
 
@@ -1535,7 +1535,7 @@ describe("createSchemaForm", () => {
     const mockOnSubmit = jest.fn();
 
     function TextField({}: { b: "1" }) {
-      const { error } = useTsController<string>();
+      const { error } = useZodController<string>();
       return (
         <>
           <div>text</div>
@@ -1567,7 +1567,7 @@ describe("createSchemaForm", () => {
       [objectSchema2, BooleanField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     const schema = z.object({
       nestedField: objectSchema,
@@ -1625,7 +1625,7 @@ describe("createSchemaForm", () => {
       [otherObjSchema, ObjectField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     const schema = z.object({
       arrayField: z
@@ -1688,7 +1688,7 @@ describe("createSchemaForm", () => {
     function DynamicArray() {
       const {
         field: { value, onChange },
-      } = useTsController<string[]>();
+      } = useZodController<string[]>();
 
       return (
         <div data-testid="dynamic-array">
@@ -1726,7 +1726,7 @@ describe("createSchemaForm", () => {
       [z.number(), NumberField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     const schema = z.object({
       arrayField: z.string().array(),
@@ -1777,7 +1777,7 @@ describe("createSchemaForm", () => {
     function DynamicArray(_props: { something?: boolean }) {
       const {
         field: { value, onChange },
-      } = useTsController<z.infer<typeof objectSchema>[]>();
+      } = useZodController<z.infer<typeof objectSchema>[]>();
 
       return (
         <div data-testid="dynamic-array">
@@ -1819,7 +1819,7 @@ describe("createSchemaForm", () => {
       [z.number(), NumberField],
     ] as const;
 
-    const Form = createTsForm(mapping);
+    const Form = createZodForm(mapping);
 
     const schema = z.object({
       arrayField: objectSchema.array().nonempty(),
@@ -1862,7 +1862,7 @@ describe("createSchemaForm", () => {
         fieldTwo: z.string(),
       });
 
-      const Form = createTsForm([[z.string(), TextField]] as const, {
+      const Form = createZodForm([[z.string(), TextField]] as const, {
         FormComponent: ({
           children,
         }: {

@@ -1,11 +1,12 @@
 {
-  "name": "@ts-react/form",
+  "name": "react-zod-form",
   "version": "1.0.6",
   "description": "Build forms faster!",
   "module": "lib/index.mjs",
   "main": "lib/index.cjs",
   "types": "lib/src/index.d.ts",
-  "packageManager": "pnpm@7.27.0",
+  "packageManager": "bun@1.0.0",
+  "keywords": ["react", "zod", "form", "forms", "react-hook-form", "typescript", "validation"],
   "scripts": {
     "dev": "jest --watchAll",
     "test:cov": "jest --coverage",
@@ -16,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/iway1/react-ts-form.git"
+    "url": "git+https://github.com/NastuzziSamy/react-zod-form.git"
   },
   "type": "module",
   "author": "Isaac Way",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/iway1/react-ts-form/issues"
+    "url": "https://github.com/NastuzziSamy/react-zod-form/issues"
   },
-  "homepage": "https://github.com/iway1/react-ts-form#readme",
+  "homepage": "https://github.com/NastuzziSamy/react-zod-form#readme",
   "devDependencies": {
     "@hookform/resolvers": "^2.9.10",
     "@rollup/plugin-terser": "^0.2.1",
